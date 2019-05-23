@@ -44,7 +44,12 @@ export default class SpellService {
         return new Spell(_state.activeSpell)
     }
 
-
+    getAllSpells() {
+        _apiSpells.get()
+            .then(res => {
+                console.log(res)
+            })
+    }
 
 
 
