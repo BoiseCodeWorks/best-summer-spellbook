@@ -5,7 +5,13 @@ import SpellService from "./SpellService.js";
 let _spellService = new SpellService()
 
 function _drawApiSpells() {
-
+    let spells = _spellService.ApiSpells
+    let template = ``
+    for (let i = 0; i < spells.length; i++) {
+        let spell = spells[i]
+        template += spell.ListTemplate
+    }
+    document.getElementById('api-spells').innerHTML = template
 }
 
 function _drawActiveSpell() {

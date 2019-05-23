@@ -52,6 +52,11 @@ export default class SpellService {
             })
             .catch(e => console.error(e))
     }
+    viewDetails(id) {
+        let selected = _state.apiSpells.find(s => s._id == id)
+        _setState('activeSpell', selected)
+
+    }
 
 
 
