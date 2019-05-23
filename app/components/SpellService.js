@@ -1,11 +1,14 @@
 import Spell from "../models/spell.js";
 
 //Private
+let _apiSpells = axios.create({
+    baseURL: "https://mage-warz.herokuapp.com/api/spells"
+})
+let _apiSpellbook = axios.create({
+    baseURL: 'http://bcw-sandbox.herokuapp.com/api/CodeWizards/spells'
+})
 
 
-// Endpoints: 
-// http://bcw-sandbox.herokuapp.com/api/YOURNAME/spells
-// https://mage-warz.herokuapp.com/api/spells
 
 let _state = {
     apiSpells: [],
@@ -31,8 +34,21 @@ export default class SpellService {
         _subscribers[propName].push(fn)
     }
 
-    get apiSpells() {
+    get ApiSpells() {
         return _state.apiSpells.map(spell => new Spell(spell))
     }
+    get Spellbook() {
+        return _state.spellbook.map(spell => new Spell(spell))
+    }
+    get ActiveSpell() {
+        return new Spell(_state.activeSpell)
+    }
+
+
+
+
+
+
+
 
 }

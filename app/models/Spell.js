@@ -1,6 +1,12 @@
 export default class Spell {
-    constructor() {
-
+    constructor(data) {
+        this.name = data.name
+        this.description = data.description
+        this.level = data.level
+        this.range = data.range
+        this.duration = data.duration
+        this.components = data.components
+        this._id = data._id
     }
 }
 
