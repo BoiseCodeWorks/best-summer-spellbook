@@ -26,8 +26,9 @@ export default class SpellController {
         _spellService.addSubscribers("activeSpell", _drawActiveSpell)
         _spellService.addSubscribers("spellbook", _drawSpellbook)
 
-
+        _spellService.getAllSpells()
 
         //Get Data
     }
+
 }

@@ -18,11 +18,11 @@ let _state = {
 
 let _subscribers = {
     apiSpells: [],
-    activeSpell: {},
+    activeSpell: [],
     spellbook: []
 }
 
-function setState(propName, data) {
+function _setState(propName, data) {
     _state[propName] = data
     _subscribers[propName].forEach(fn => fn())
 }
@@ -47,8 +47,10 @@ export default class SpellService {
     getAllSpells() {
         _apiSpells.get()
             .then(res => {
-                console.log(res)
+                let spellData = res.data.map(s => new Spell(s))
+                _setState('apiSpells', spellData)
             })
+            .catch(e => console.error(e))
     }
 
 
